@@ -3,10 +3,7 @@
   font-style: normal;
   font-weight: normal;
   src: url('fonts/Airstream-webfont.eot');
-  src: url('fonts/Airstream-webfont.eot?#iefix') format('embedded-opentype'),
-       url('fonts/Airstream-webfont.woff') format('woff'),
-       url('fonts/Airstream-webfont.ttf') format('truetype'),
-       url('fonts/Airstream-webfont.svg#airstreamregular') format('svg');
+  src: url('fonts/Airstream-webfont.eot?#iefix') format('embedded-opentype'), url('fonts/Airstream-webfont.woff') format('woff'), url('fonts/Airstream-webfont.ttf') format('truetype'), url('fonts/Airstream-webfont.svg#airstreamregular') format('svg');
 }
 
 @font-face {
@@ -14,10 +11,7 @@
   font-style: normal;
   font-weight: normal;
   src: url('fonts/LAKESHOR-webfont.eot');
-  src: url('fonts/LAKESHOR-webfont.eot?#iefix') format('embedded-opentype'),
-       url('fonts/LAKESHOR-webfont.woff') format('woff'),
-       url('fonts/LAKESHOR-webfont.ttf') format('truetype'),
-       url('fonts/LAKESHOR-webfont.svg#lakeshore') format('svg');
+  src: url('fonts/LAKESHOR-webfont.eot?#iefix') format('embedded-opentype'), url('fonts/LAKESHOR-webfont.woff') format('woff'), url('fonts/LAKESHOR-webfont.ttf') format('truetype'), url('fonts/LAKESHOR-webfont.svg#lakeshore') format('svg');
 }
 
 html, body {
@@ -59,6 +53,11 @@ a[href="#"] {
   display: inline-block;
   max-width: 120px;
   min-width: 120px;
+  transition: transform 133ms ease-in-out;
+}
+
+.thumbnail-item:hover {
+  transform: scale(1.2);
 }
 
 .thumbnail-list {
@@ -68,7 +67,7 @@ a[href="#"] {
   list-style: none;
   order: 2;
   overflow-x: auto;
-  padding: 0;
+  padding: 20px 0;
   white-space: nowrap;
 }
 
@@ -80,7 +79,7 @@ a[href="#"] {
 .thumbnail-title {
   background: rgb(96, 125, 139);
   color: rgb(202, 238, 255);
-  display:block;
+  display: block;
   font-size: 18px;
   margin: 0;
   padding: 4px 10px;
@@ -96,6 +95,12 @@ a[href="#"] {
 .detail-image-frame {
   position: relative;
   text-align: center;
+  transition: transform 333ms cubic-bezier(1, .06, .28, 1);
+}
+
+.is-tiny {
+  transform: scale(0.001);
+  transition: transform 0ms;
 }
 
 .detail-image {
@@ -112,23 +117,34 @@ a[href="#"] {
   text-shadow: rgba(0, 0, 0, 0.9) 1px 2px 9px;
 }
 
+.hidden-detail .detail-image-container {
+  display: none;
+}
+
+.hidden-detail .thumbnail-list {
+  align-items: center;
+  flex-direction: column;
+}
+
+.hidden-detail .thumbnail-item {
+  max-width: 80%;
+}
+
 @media all and (min-width: 768px) {
   .main-content {
     flex-direction: row;
     overflow: hidden;
   }
-
   .thumbnail-list {
     flex-direction: column;
     margin-left: 20px;
     order: 0;
+    padding: 0 35px;
   }
-
   .thumbnail-item {
     max-width: 260px;
   }
-
-  .thumbnail-item + .thumbnail-item {
+  .thumbnail-item+.thumbnail-item {
     margin-top: 20px;
   }
 }
